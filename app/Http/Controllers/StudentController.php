@@ -12,16 +12,45 @@ class StudentController extends Controller
     protected $city;
     protected $student;
 
+
+
+    public function create(Request $request)
+    {
+        $this->student = new Student();
+        $this->student->name = $request->name;
+        $this->student->email = $request->email;
+        $this->student->mobile = $request->mobile;
+        $this->student->save();
+        return redirect()->back()->with('message', 'Student info save successfully');
+    }
+
     public function index()
     {
-        $this->name = 'BITM';
-        $this->city = 'Dhaka';
-        $data = 'Dhaka';
-        $dat = 'Dhaka1';
+        return view('add-student');
 
-        $this->student = new Student();
-        $this->student->newStudent();
-        return 'success';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        $this->name = 'BITM';
+//        $this->city = 'Dhaka';
+//        $data = 'Dhaka';
+//        $dat = 'Dhaka1';
+//
+//        $this->student = new Student();
+//        $this->student->newStudent();
+//        return 'success';
 
 
 //        $this->students = Student::getAllStudent();
